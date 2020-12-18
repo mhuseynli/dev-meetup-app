@@ -40,6 +40,14 @@
               :meetupId="meetup.id"
               v-if="userIsAuthenticated && !userIsCreator"
             ></register-dialog>
+            <v-btn
+              outlined
+              color="blue darken-1"
+              v-if="!userIsAuthenticated && !userIsCreator"
+              to="/signin"
+            >
+              Sign in to register
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>

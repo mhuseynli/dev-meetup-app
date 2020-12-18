@@ -1,6 +1,15 @@
 <template>
   <v-container>
-    <v-row justify="center">
+    <v-row justify="center" v-if="loading">
+      <v-progress-circular
+        class="text-center"
+        indeterminate
+        color="blue darken-1"
+        width="7"
+        size="70"
+      ></v-progress-circular>
+    </v-row>
+    <v-row v-else justify="center">
       <v-col cols="12">
         <v-card
           height="200px"
@@ -41,6 +50,9 @@
 <script>
 export default {
   computed: {
+    loading() {
+      return this.$store.getters.loading;
+    },
     meetups() {
       return this.$store.getters.loadedMeetups;
     },
